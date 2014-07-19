@@ -14,7 +14,7 @@
 
       $("body").append(overlay);
 
-      options =  $.extend(defaults, options);
+      options = $.extend(defaults, options);
 
       return this.each(function() {
 
@@ -40,7 +40,6 @@
           $('#lean_overlay').fadeTo(200,o.overlay);
 
           $(modal_id).css({
-
             'display' : 'block',
             'position' : 'fixed',
             'opacity' : 0,
@@ -48,7 +47,6 @@
             'left' : 50 + '%',
             'margin-left' : -(modal_width/2) + "px",
             'top' : o.top + "px"
-
           });
 
           $(modal_id).fadeTo(200,1);

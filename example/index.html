@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../jquery.leanModal.js"></script>
+    <link rel="stylesheet" href="../jquery.leanModal.css" type="text/css" media="all">
+    <link rel="stylesheet" href="demo.css" type="text/css" media="all" />
+    <title></title>
+  </head>
+  <body>
+    <p class="text-center">
+      <a rel="leanModal" href="#basic">basic</a>
+      |
+      <a rel="leanModal" href="#close">with close button</a>
+    </p>
+
+    <div class="modal" id="basic">Hello World!</div>
+    <div class="modal" id="close">
+      <i class="modal_close">&times;</i>
+      hello
+    </div>
+
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $("a[rel='leanModal']").leanModal({ top: 100, closeButton: ".modal_close" });
+      });
+    </script>
+  </body>
+</html>
