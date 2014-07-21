@@ -7,7 +7,8 @@
       var defaults = {
         top: 100,
         overlay: 0.5,
-        closeButton: null
+        closeButton: null,
+        complete: null
       }
 
       var overlay = $("<div id='lean_overlay'></div>");
@@ -21,8 +22,9 @@
         var o = options;
 
         $(this).click(function(e) {
-
+          var $this = $(this);
           var modal_id = $(this).attr("href");
+          var $modal = $(modal_id);
 
           $("#lean_overlay").click(function() {
             close_modal(modal_id);
@@ -39,7 +41,7 @@
 
           $('#lean_overlay').fadeTo(200,o.overlay);
 
-          $(modal_id).css({
+          $modal.css({
             'display' : 'block',
             'position' : 'fixed',
             'opacity' : 0,
@@ -49,7 +51,11 @@
             'top' : o.top + "px"
           });
 
-          $(modal_id).fadeTo(200,1);
+          $modal.fadeTo(200,1);
+
+          if (o.complete && o.complete instanceof Function) {
+            o.complete($modal, $this);
+          }
 
           e.preventDefault();
 
